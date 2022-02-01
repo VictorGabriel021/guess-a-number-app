@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, SafeAreaView } from "react-native";
 
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -24,7 +24,7 @@ export default function App() {
 
   if (!dataLoaded) {
     return (
-      <AppLoading 
+      <AppLoading
         startAsync={fetchFonts}
         onFinish={() => setDataLoaded(true)}
         onError={(err) => console.log(err)}
@@ -63,10 +63,10 @@ export default function App() {
   }
 
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
       <Header title="Guess a Number" />
       {content}
-    </View>
+    </SafeAreaView>
   );
 }
 
